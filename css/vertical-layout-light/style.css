@@ -13399,8 +13399,12 @@ input[type="button"].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-}
 
+}
+.bgclr{
+      background-color: #251534;
+
+}
 .navbar .container,
 .navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl {
   display: flex;
@@ -22077,8 +22081,8 @@ code {
 }
 
 .card.card-tale {
-  background: #7DA0FA;
-  color: #ffffff;
+  /* background: #7DA0FA; */
+  color: black;
 }
 
 .card.card-tale:hover {
@@ -22086,8 +22090,8 @@ code {
 }
 
 .card.card-dark-blue {
-  background: #4747A1;
-  color: #ffffff;
+  /* background: #4747A1; */
+  color: black;
 }
 
 .card.card-dark-blue:hover {
@@ -22095,8 +22099,8 @@ code {
 }
 
 .card.card-light-blue {
-  background: #7978E9;
-  color: #ffffff;
+  /* background: #7978E9; */
+  color: black;
 }
 
 .card.card-light-blue:hover {
@@ -22104,8 +22108,8 @@ code {
 }
 
 .card.card-light-danger {
-  background: #F3797E;
-  color: #ffffff;
+  /* background: #F3797E; */
+  color: black;
 }
 
 .card.card-light-danger:hover {
@@ -28449,7 +28453,7 @@ div.tagsinput span.tag a {
 }
 
 .content-wrapper {
-  background: #F5F7FF;
+  background: #FAFAFA;
   padding: 2.375rem 2.375rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -28465,7 +28469,7 @@ div.tagsinput span.tag a {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 60px);
-  background: #fff;
+  background: #251534;
   font-family: "Nunito", sans-serif;
   font-weight: 500;
   padding: 0;
@@ -28591,7 +28595,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav .nav-item.active > .nav-link {
-  background: #4B49AC;
+  background: rgba(237, 60, 78, 0.1); /* #ED3C4E with 10% opacity */
   position: relative;
 }
 
@@ -28711,7 +28715,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar-dark .sidebar .nav .nav-item.active > .nav-link {
-  background: #4B49AC;
+  background: #ED3C4E;
 }
 
 .sidebar-dark .sidebar .nav .nav-item.active > .nav-link .menu-title,
@@ -28789,7 +28793,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-brand-wrapper {
-  background: #ffffff;
+  background: #251534;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
@@ -28858,7 +28862,7 @@ div.tagsinput span.tag a {
 
 .navbar .navbar-menu-wrapper .navbar-toggler {
   border: 0;
-  color: inherit;
+  color: #FFFFFF;
   font-size: 1.25rem;
   padding: 0;
   border-radius: 0;
@@ -28904,7 +28908,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link {
-  color: inherit;
+  color: #FFFFFF;
   font-size: 1rem;
 }
 
@@ -29104,7 +29108,7 @@ div.tagsinput span.tag a {
   width: 12px;
   height: 12px;
   border-radius: 100%;
-  background: #4B49AC;
+  background: #ff0037;
   top: 1px;
   border: 1px solid #ffffff;
 }
@@ -30591,5 +30595,102 @@ div.tagsinput span.tag a {
     display: none;
   }
 }
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem; /* Adjusts the space between title and card */
+}
+
+.cap {
+  background-color: #f3f0ff;
+  height: 40px;
+  width: 40px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-flex.align-items-center .mr-2 {
+  margin-right: 8px; /* Adjust margin as needed */
+}
+.bg-bag{
+  background-color: rgba(143, 245, 193, 0.5); /* Adjust the alpha value as needed */
+  
+}
+
+.bg-sj{
+background-color: rgba(254, 197, 61, 0.5);
+}
+.bg-pv{
+background-color: rgba(130, 128, 255, 0.5);
+}
+.bg-aj{
+background-color: rgba(255, 144, 102, 0.5);
+}
 
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
+ .job-card {
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-card img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .job-card .text-content h4 {
+            font-size: 18px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .job-card .text-content p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .job-card .details {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .job-card .details img {
+            margin-right: 5px;
+            height: 16px;
+            width: 16px;
+        }
+
+        .job-card .details p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .bgpurple{
+          background-color: #F3F0FF; /* Adjust the color as needed */
+          border-radius: 20px;
+          
+        }
+        .Company-card{ 
+          width:240px !important;
+        }
+       .card-body > .d-flex {
+  display: flex;
+  justify-content: space-between; /* Distribute the items */
+  align-items: center; /* Vertically align them in the center */
+}
+
+.category {
+  background-color: red;
+  color: white; /* Change text color to contrast with red background */
+  padding: 10px;
+  border-radius: 15px; /* Rounded corners */
+  margin: 0 10px; /* Space between the items */
+  white-space: nowrap; /* Prevent text from breaking into multiple lines */
+}

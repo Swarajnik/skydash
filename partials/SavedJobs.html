@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Shenzyn JobSeeker</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../vendors/feather/feather.css" />
+    <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css" />
+    <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css" />
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link
+      rel="stylesheet"
+      href="../vendors/datatables.net-bs4/dataTables.bootstrap4.css"
+    />
+    <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../js/select.dataTables.min.css"
+    />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../css/vertical-layout-light/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../images/logoMini.svg" />
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+   
+     <style>
+         .filter-button {
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+                .job-card {
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            background-color: #fff;
+        }
+        .job-card .company-logo {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+        .job-card .badge-custom {
+            background-color: #e9d8fd;
+            color: #6b46c1;
+        }
+        .job-card .text-yellow {
+            color: #f6ad55;
+        }
+        .job-card .text-muted {
+            color: #718096;
+        }
+      .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl{
+        padding-left: 0px !important;
+      }
+      .title{
+        margin-left: 55px;
+        margin-top: 10px;
+      }
+      i {
+        color: #ed3c4e;
+      }
+    .dotted{
+      padding-top: 10px;
+        border-bottom: 2px dotted #ccc;
+     
+      }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .profile-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: conic-gradient(#7CF496 calc(var(--progress) * 1%), #f9f9f9 0%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-circle img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.progress-circle::after {
+    content: attr(data-progress) '%';
+    position: absolute;
+    bottom: -20px;
+    font-size: 0.9rem;
+    color: #7CF496;
+}
+
+        .profile-header {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            position: relative;
+        }
+        .profile-header img {
+            /* border: 4px solid white; */
+            /* margin-top: -3rem; */
+        }
+        .profile-header .edit-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        .profile-header .info-item {
+            margin-bottom: 1rem;
+        }
+        .profile-header .info-item i {
+            margin-right: 0.5rem;
+        }
+        .profile-header .social-icons a {
+            margin-right: 1rem;
+        }
+        /* tabs responsive */
+        .tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.tabs .d-flex {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.tabs button {
+    flex: 0 0 auto; /* Ensure buttons don't shrink */
+    margin-right: 8px; /* Add margin between buttons */
+}
+/* Optional: You can hide scrollbars on specific browsers */
+.tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tabs {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+        .tabs {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .section {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-top: 1rem;
+        }
+        .section .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section .section-header h2 {
+            margin: 0;
+        }
+        .section .section-header .add-btn {
+            font-size: 1.5rem;
+        }
+        .section .item {
+            display: flex;
+            align-items: start;
+            margin-top: 1rem;
+        }
+        .btn-light{
+          background-color: #ED3C4E12 !important;
+        }
+        .section .item i, .section .item img {
+            margin-right: 1rem;
+        }
+        .section .item .edit-btn {
+            margin-left: auto;
+        }
+        .skill-item {
+
+            background-color: #e9ecef;
+
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+        }
+        .preferences .preference-item {
+            margin-bottom: 1rem;
+        }
+        .preferences .preference-item .preference-label {
+            font-weight:bolder;
+            font-size: large;
+        }
+        .preferences .preference-item .preference-value {
+            margin-left: 1rem;
+        }
+        /* Modal css */
+      .modal-header {
+  background-color: #251534;
+  color: white;
+    border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+
+
+
+}
+
+.modal-content {
+  border-radius: 20px;
+}
+
+.profile-pic {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.profile-pic img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.upload-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.upload-icon i {
+  color: #ed3c4e;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background-color: #ed3c4e;
+  border-color: #ed3c4e;
+}
+
+.btn-outline-danger {
+  color: #ed3c4e;
+  border-color: #ed3c4e;
+}
+
+input[type="file"] {
+  border: 1px dashed #ed3c4e;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+small.text-danger {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+/* profile header css */
+.profile-header {
+    position: relative;
+    padding-top: 120px; /* Adjust the padding to match the header height */
+}
+
+.profile-header .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px; /* Adjust height as needed for cover photo effect */
+    overflow: hidden;
+    z-index: 0; /* Ensure it's behind the content */
+}
+
+.profile-header .bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    object-position: center; /* Ensures the image stays centered */
+}
+
+.profile-header .d-flex {
+    position: relative;
+    z-index: 1; /* Bring content in front of the background */
+}
+
+.profile-header img.rounded-circle {
+    border: #7CF496 /* Optional: Add white border around the profile picture */
+}
+
+.profile-header hr {
+    margin: 0.5rem 0; /* Adjust spacing around the HR tag */
+}
+
+    </style>  
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div
+          class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+        >
+          <a class="navbar-brand brand-logo mr-5" href="../index.html"
+            ><img src="../images/mainlogo.svg" class="mr-2" alt="logo"
+          /></a>
+          <a class="navbar-brand brand-logo-mini" href="../index.html"
+            ><img src="../images/logoMini.svg" alt="logo"
+          /></a>
+        </div>
+        <div
+          class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          <button
+            class="navbar-toggler navbar-toggler align-self-center"
+            type="button"
+            data-toggle="minimize"
+          >
+            <span class="icon-menu" style="color: #251534;"></span>
+          </button>
+          <ul class="navbar-nav mr-lg-2">
+            <li class="nav-item nav-search d-none d-lg-block">
+              <div class="input-group ">
+                <input
+                  type="text"
+                  class="form-control "
+                  id="navbar-search-input"
+                  placeholder="Search for job, mentor, webinar"
+                  aria-label="search"
+                  aria-describedby="search"
+                />
+                
+              </div>
+
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link count-indicator dropdown-toggle"
+                id="notificationDropdown"
+                href="#"
+                data-toggle="dropdown"
+              >
+                <i class="icon-bell mx-0" style="color: #251534;"></i>
+                <span class="count"></span>
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="notificationDropdown"
+              >
+                <p class="mb-0 font-weight-normal float-left dropdown-header">
+                  Notifications
+                </p>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                      <i class="ti-info-alt mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">
+                      Application Error
+                    </h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      Just now
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-warning">
+                      <i class="ti-settings mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Need Help</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      Private   
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-info">
+                      <i class="ti-user mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">
+                      New user registration
+                    </h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      2 days ago
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="nav-item nav-profile dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-toggle="dropdown"
+                id="profileDropdown"
+              >
+                <img src="../images/faces/face28.jpg" alt="profile" />
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                aria-labelledby="profileDropdown"
+              >
+                <a class="dropdown-item">
+                  <i class="ti-help-alt text-primary"></i>
+                  Need Help
+                </a>
+                <a class="dropdown-item">
+                  <i class="ti-power-off text-primary"></i>
+                  Reset Password
+                </a>
+                <a class="dropdown-item">
+                  <i class="ti-power-off text-primary"></i>
+                  Sign Out
+                </a>
+              </div>
+            </li>
+            <li class="nav-item nav-settings d-none d-lg-flex">
+              <a class="nav-link" href="#">
+                <i class="icon-ellipsis"></i>
+              </a>
+            </li>
+          </ul>
+          <button
+            class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+            type="button"
+            data-toggle="offcanvas"
+          >
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_settings-panel.html -->
+        <div class="theme-setting-wrapper">
+          <div id="settings-trigger"><i class="ti-settings"></i></div>
+          <div id="theme-settings" class="settings-panel">
+            <i class="settings-close ti-close"></i>
+            <p class="settings-heading">SIDEBAR SKINS</p>
+            <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+              <div class="img-ss rounded-circle bg-light border mr-3"></div>
+              Light
+            </div>
+            <div class="sidebar-bg-options" id="sidebar-dark-theme">
+              <div class="img-ss rounded-circle bg-dark border mr-3"></div>
+              Dark
+            </div>
+            <p class="settings-heading mt-2">HEADER SKINS</p>
+            <div class="color-tiles mx-0 px-4">
+              <div class="tiles success"></div>
+              <div class="tiles warning"></div>
+              <div class="tiles danger"></div>
+              <div class="tiles info"></div>
+              <div class="tiles dark"></div>
+              <div class="tiles default"></div>
+            </div>
+          </div>
+        </div>
+        <div id="right-sidebar" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="todo-tab"
+                data-toggle="tab"
+                href="#todo-section"
+                role="tab"
+                aria-controls="todo-section"
+                aria-expanded="true"
+                >TO DO LIST</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="chats-tab"
+                data-toggle="tab"
+                href="#chats-section"
+                role="tab"
+                aria-controls="chats-section"
+                >CHATS</a
+              >
+            </li>
+          </ul>
+          <div class="tab-content" id="setting-content">
+            <div
+              class="tab-pane fade show active scroll-wrapper"
+              id="todo-section"
+              role="tabpanel"
+              aria-labelledby="todo-section"
+            >
+              <div class="add-items d-flex px-3 mb-0">
+                <form class="form w-100">
+                  <div class="form-group d-flex">
+                    <input
+                      type="text"
+                      class="form-control todo-list-input"
+                      placeholder="Add To-do"
+                    />
+                    <button
+                      type="submit"
+                      class="add btn btn-primary todo-list-add-btn"
+                      id="add-task"
+                    >
+                      Add
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="list-wrapper px-3">
+                <ul class="d-flex flex-column-reverse todo-list">
+                  <li>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="checkbox" type="checkbox" />
+                        Team review meeting at 3.00 PM
+                      </label>
+                    </div>
+                    <i class="remove ti-close"></i>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="checkbox" type="checkbox" />
+                        Prepare for presentation
+                      </label>
+                    </div>
+                    <i class="remove ti-close"></i>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="checkbox" type="checkbox" />
+                        Resolve all the low priority tickets due today
+                      </label>
+                    </div>
+                    <i class="remove ti-close"></i>
+                  </li>
+                  <li class="completed">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="checkbox" type="checkbox" checked />
+                        Schedule meeting for next week
+                      </label>
+                    </div>
+                    <i class="remove ti-close"></i>
+                  </li>
+                  <li class="completed">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="checkbox" type="checkbox" checked />
+                        Project review
+                      </label>
+                    </div>
+                    <i class="remove ti-close"></i>
+                  </li>
+                </ul>
+              </div>
+              <h4 class="px-3 text-muted mt-5 font-weight-light mb-0">
+                Events
+              </h4>
+              <div class="events pt-4 px-3">
+                <div class="wrapper d-flex mb-2">
+                  <i class="ti-control-record text-primary mr-2"></i>
+                  <span>Feb 11 2018</span>
+                </div>
+                <p class="mb-0 font-weight-thin text-gray">
+                  Creating component page build a js
+                </p>
+                <p class="text-gray mb-0">The total number of sessions</p>
+              </div>
+              <div class="events pt-4 px-3">
+                <div class="wrapper d-flex mb-2">
+                  <i class="ti-control-record text-primary mr-2"></i>
+                  <span>Feb 7 2018</span>
+                </div>
+                <p class="mb-0 font-weight-thin text-gray">
+                  Meeting with Alisa
+                </p>
+                <p class="text-gray mb-0">Call Sarah Graves</p>
+              </div>
+            </div>
+            <!-- To do section tab ends -->
+            <div
+              class="tab-pane fade"
+              id="chats-section"
+              role="tabpanel"
+              aria-labelledby="chats-section"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between border-bottom"
+              >
+                <p
+                  class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0"
+                >
+                  Friends
+                </p>
+                <small
+                  class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal"
+                  >See All</small
+                >
+              </div>
+              <ul class="chat-list">
+                <li class="list active">
+                  <div class="profile">
+                    <img src="../images/faces/face1.jpg" alt="image" /><span
+                      class="online"
+                    ></span>
+                  </div>
+                  <div class="info">
+                    <p>Thomas Douglas</p>
+                    <p>Available</p>
+                  </div>
+                  <small class="text-muted my-auto">19 min</small>
+                </li>
+                <li class="list">
+                  <div class="profile">
+                    <img src="../images/faces/face2.jpg" alt="image" /><span
+                      class="offline"
+                    ></span>
+                  </div>
+                  <div class="info">
+                    <div class="wrapper d-flex">
+                      <p>Catherine</p>
+                    </div>
+                    <p>Away</p>
+                  </div>
+                  <div class="badge badge-success badge-pill my-auto mx-2">
+                    4
+                  </div>
+                  <small class="text-muted my-auto">23 min</small>
+                </li>
+                <li class="list">
+                  <div class="profile">
+                    <img src="../images/faces/face3.jpg" alt="image" /><span
+                      class="online"
+                    ></span>
+                  </div>
+                  <div class="info">
+                    <p>Daniel Russell</p>
+                    <p>Available</p>
+                  </div>
+                  <small class="text-muted my-auto">14 min</small>
+                </li>
+                <li class="list">
+                  <div class="profile">
+                    <img src="../images/faces/face4.jpg" alt="image" /><span
+                      class="offline"
+                    ></span>
+                  </div>
+                  <div class="info">
+                    <p>James Richardson</p>
+                    <p>Away</p>
+                  </div>
+                  <small class="text-muted my-auto">2 min</small>
+                </li>
+                <li class="list">
+                  <div class="profile">
+                    <img src="../images/faces/face5.jpg" alt="image" /><span
+                      class="online"
+                    ></span>
+                  </div>
+                  <div class="info">
+                    <p>Madeline Kennedy</p>
+                    <p>Available</p>
+                  </div>
+                  <small class="text-muted my-auto">5 min</small>
+                </li>
+                <li class="list">
+                  <div class="profile">
+                    <img src="../images/faces/face6.jpg" alt="image" /><span
+                      class="online"
+                    ></span>
+                  </div>
+                  <div class="info">
+                    <p>Sarah Graves</p>
+                    <p>Available</p>
+                  </div>
+                  <small class="text-muted my-auto">47 min</small>
+                </li>
+              </ul>
+            </div>
+            <!-- chat tab ends -->
+          </div>
+        </div>
+        <!-- partial -->
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html" >
+                <img
+                  src="../images//SVG/Dashboard.svg"
+                  class="menu-icon"
+                  alt="Dashboard Icon"
+                  style="margin-right: 10px"
+                />
+                <span class="menu-title"> Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-toggle="collapse"
+                href="#ui-basic"
+                aria-expanded="false"
+                aria-controls="ui-basic"
+              >
+                <img
+                  src="../images//SVG/Jobs.svg"
+                  class="menu-icon"
+                  alt="Dashboard Icon"
+                  style="margin-right: 10px"
+                />
+
+                <span class="menu-title">Job Alerts</span>
+                <i class="menu-arrow"></i>
+              </a>
+             
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-toggle="collapse"
+                href="#form-elements"
+                aria-expanded="false"
+                aria-controls="form-elements"
+              >
+                <img
+                  src="../images//SVG/Saved.svg"
+                  class="menu-icon"
+                  alt="Dashboard Icon"
+                  style="margin-right: 10px"
+                />
+                <span class="menu-title">Saved Jobs</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <!-- <div class="collapse" id="form-elements">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="pages/forms/basic_elements.html"
+                      >Basic Elements</a
+                    >
+                  </li>
+                </ul>
+              </div> -->
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-toggle="collapse"
+                href="../partials/Profile.html"
+                target="_blank"
+              >
+                <img
+                  src="../images//SVG/Profile.svg"
+                  class="menu-icon"
+                  alt="Dashboard Icon"
+                  style="margin-right: 10px"
+                />
+                <span class="menu-title">Profile</span>
+                <i class="menu-arrow"></i>
+              </a>
+             
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-toggle="collapse"
+                href="#tables"
+                aria-expanded="false"
+                aria-controls="tables"
+              >
+                <img
+                  src="../images//SVG/Events.svg"
+                  class="menu-icon"
+                  alt="Dashboard Icon"
+                  style="margin-right: 10px"
+                />
+
+                <!-- <i class="icon-grid-2 menu-icon"></i> -->
+                <span class="menu-title">Events</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <!-- <div class="collapse" id="tables">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="pages/tables/basic-table.html"
+                      >Basic table</a
+                    >
+                  </li>
+                </ul>
+              </div> -->
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-toggle="collapse"
+                href="#icons"
+                aria-expanded="false"
+                aria-controls="icons"
+              >
+                <img
+                  src="../images//SVG/Training.svg"
+                  class="menu-icon"
+                  alt="Dashboard Icon"
+                  style="margin-right: 10px"
+                />
+
+                <!-- <i class="icon-contract menu-icon"></i> -->
+                <span class="menu-title">Training</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <!-- <div class="collapse" id="icons">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="pages/icons/mdi.html"
+                      >Mdi icons</a
+                    >
+                  </li>
+                </ul>
+              </div> -->
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-toggle="collapse"
+                href="#auth"
+                aria-expanded="false"
+                aria-controls="auth"
+              >
+                <img
+                  src="../images//SVG/Mentor.svg"
+                  class="menu-icon"
+                  alt="Dashboard Icon"
+                  style="margin-right: 10px"
+                />
+
+                <!-- <i class="icon-head menu-icon"></i> -->
+                <span class="menu-title">Mentor</span>
+                <i class="menu-arrow"></i>
+              </a>
+             
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel ">
+          <div class="row  ">
+                  <div
+                      class=" d-flex title  align-items-center mb-3"
+                    >
+                      <img src="../images/SVG/half.svg" alt="" />
+                      <h3 class="font-weight-bold ml-3">Saved Jobs</h3>
+                    </div>
+                </div>
+                <div class="content-wrapper bg-light py-5">
+           <divclass="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="d-flex flex-wrap justify-content-center">
+        <div class="m-2">
+            <button class="btn btn-white filter-button d-flex align-items-center px-4 py-2">
+                <span class="mr-2">Experience</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="m-2">
+            <button class="btn btn-white filter-button d-flex align-items-center px-4 py-2">
+                <span class="mr-2">Work Mode</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="m-2">
+            <button class="btn btn-white filter-button d-flex align-items-center px-4 py-2">
+                <span class="mr-2">Salary</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="m-2">
+            <button class="btn btn-white filter-button d-flex align-items-center px-4 py-2">
+                <span class="mr-2">Education</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="m-2">
+            <button class="btn btn-white filter-button d-flex align-items-center px-4 py-2">
+                <span class="mr-2">Industry</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="m-2">
+            <button class="btn btn-white filter-button d-flex align-items-center px-4 py-2">
+                <span class="mr-2">Location</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="m-2">
+            <button class="btn btn-white filter-button d-flex align-items-center px-4 py-2">
+                <span class="mr-2">Advance</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+    </div>
+           </div>
+  <div class="container">
+        <div class="row">
+            <!-- Job Card 1 -->
+            <div class="col-12 mb-4">
+                <div class="job-card d-flex flex-column flex-md-row align-items-start">
+                    <img src="https://storage.googleapis.com/a1aa/image/y0y7nfV4JJ3hBK3DPph281nY17KkTTRHvFGie8MPUUBQnlmTA.jpg" alt="Company logo for Wipro" class="company-logo mr-3"/>
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h2 class="h5 font-weight-bold">Sr.Consultant</h2>
+                            <button class="btn btn-link text-danger p-0"><i class="far fa-bookmark"></i></button>
+                        </div>
+                        <div class="text-muted">Wipro <span class="text-yellow"><i class="fas fa-star"></i> 3.9</span> | 43.3K+ reviews</div>
+                        <div class="d-flex flex-wrap mt-2">
+                            <span class="badge badge-custom mr-2 mb-2">5-6 Yrs</span>
+                            <span class="badge badge-custom mr-2 mb-2">₹ 15-18 Lacs PA</span>
+                            <span class="badge badge-custom mb-2">Mumbai</span>
+                        </div>
+                        <p class="text-muted mt-2">Lorem Ipsum Dolor Sit Amet Consectetur. Nunc Etiam Dolor Odio Tortor. Mauris A Ullamcorper Orci Eu Eu Commodo In Condimentum Vestibulum. Ac Varius Porta Id Porttitor Et Ornare. Convallis Lacinia Amet Nisl Egestas Commodo Eros.</p>
+                        <div class="text-muted mt-4">Posted : <span class="font-weight-bold">3 Dec 2024</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Job Card 2 -->
+            <div class="col-12 mb-4">
+                <div class="job-card d-flex flex-column flex-md-row align-items-start">
+                    <img src="https://storage.googleapis.com/a1aa/image/nS3EtztEHnrfcq2AmxmsVcViIfii7KB7t7vTmpKiQq5SnlmTA.jpg" alt="Company logo for Google" class="company-logo mr-3"/>
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h2 class="h5 font-weight-bold">Digital marketing Professional</h2>
+                            <button class="btn btn-link text-danger p-0"><i class="far fa-bookmark"></i></button>
+                        </div>
+                        <div class="text-muted">Google <span class="text-yellow"><i class="fas fa-star"></i> 3.9</span> | 43.3K+ reviews</div>
+                        <div class="d-flex flex-wrap mt-2">
+                            <span class="badge badge-custom mr-2 mb-2">5-6 Yrs</span>
+                            <span class="badge badge-custom mr-2 mb-2">₹ 15-18 Lacs PA</span>
+                            <span class="badge badge-custom mb-2">Mumbai</span>
+                        </div>
+                        <p class="text-muted mt-2">Lorem Ipsum Dolor Sit Amet Consectetur. Nunc Etiam Dolor Odio Tortor. Mauris A Ullamcorper Orci Eu Eu Commodo In Condimentum Vestibulum. Ac Varius Porta Id Porttitor Et Ornare. Convallis Lacinia Amet Nisl Egestas Commodo Eros.</p>
+                        <div class="text-muted mt-4">Posted : <span class="font-weight-bold">3 Dec 2024</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          </div>
+         
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- Modal Profile -->
+ <div class="modal fade" id="personalDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Personal Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="text-center mb-4">
+            <div class="profile-pic">
+              <img src="https://via.placeholder.com/100" alt="Profile" class="rounded-circle">
+              <div class="upload-icon">
+                <label for="uploadPhoto">
+                  <i class="fas fa-camera"></i>
+                </label>
+                <input type="file" id="uploadPhoto" style="display:none;">
+              </div>
+              <p>Upload photo</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="dob">Date of Birth *</label>
+              <input type="date" class="form-control" id="dob" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="diversity">Diversity *</label>
+              <input type="text" class="form-control" id="diversity" placeholder="Diversity" required>
+            </div>
+          </div>
+<!-- <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="contact">Contact Number *</label>
+            <input type="text" class="form-control" id="contact" placeholder="Enter contact number" required>
+            <button class="text-danger">Validate</button>
+          </div>
+</div> -->
+<div class="form-row">
+            <div class="form-group col-md-9">
+            <label for="contact">Contact Number *</label>
+            <input type="text" class="form-control" id="contact" placeholder="Enter contact number" required>
+            </div>
+            <div class="form-group col-md-3">
+                          <label for="contact"></label>
+ 
+              <button class="text-danger">Validate</button>
+
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="location">Current Location *</label>
+              <input type="text" class="form-control" id="location" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="nationality">Nationality *</label>
+              <input type="text" class="form-control" id="nationality" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="video">Add Video</label>
+            <input type="url" class="form-control" id="video" placeholder="Video URL">
+          </div>
+
+          <div class="form-group">
+            <label for="linkedin">LinkedIn Profile URL</label>
+            <input type="url" class="form-control" id="linkedin" placeholder="LinkedIn Profile URL">
+          </div>
+
+          <div class="form-group">
+            <label for="github">GitHub Profile URL</label>
+            <input type="url" class="form-control" id="github" placeholder="GitHub Profile URL">
+          </div>
+
+          <div class="form-group">
+            <label for="resume">Resume *</label>
+            <input type="file" class="form-control-file" id="resume" required>
+            <small>Support 1MB pdf, doc</small>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger">Save</button>
+      </div>
+    </div>
+  </div>
+</div >
+<!-- Personal Detail Modal ends -->
+ <!-- Educational Detail Modal -->
+  <div class="modal fade" id="EducationalDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" > Educational Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="Qualification">Highest Qualification *</label>
+            <input type="text" class="form-control" id="Qualification" placeholder="Highest Qualification" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="Degree">Degree *</label>
+              <input type="text" class="form-control" id="Degree" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="diversity">Specialization *</label>
+              <input type="text" class="form-control" id="Specialization" placeholder="Specialization" required>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="Institute">Institute *</label>
+            <input type="text" class="form-control" id="Institute" placeholder="Institute" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="Education">Education Type *</label>
+              <input type="text" class="form-control" id="Education" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="Passing">Passing Year and Month  *</label>
+              <input type="text" class="form-control" id="Passing" required>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger">Save</button>
+      </div>
+    </div>
+  </div>
+</div >
+<!-- Employment Details Modal -->
+ <div class="modal fade" id="EmploymentDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" > Employment Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="Designation">Designation *</label>
+            <input type="text" class="form-control" id="Designation" placeholder="Designation" required>
+          </div>
+<div class="form-group">
+            <label for="Designation">Company *</label>
+            <input type="text" class="form-control" id="Company" placeholder="Company" required>
+          </div>
+          <!-- <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="Degree">Degree *</label>
+              <input type="text" class="form-control" id="Degree" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="diversity">Specialization *</label>
+              <input type="text" class="form-control" id="Specialization" placeholder="Specialization" required>
+            </div>
+          </div> -->
+
+
+          <div class="form-group">
+            <label for="CTC">Current CTC (in LPA) *</label>
+            <input type="text" class="form-control" id="CTC" placeholder="CTC" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="FromDate">From Date *</label>
+              <input type="date" class="form-control" id="FromDate" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="ToDate">To Date  *</label>
+              <input type="date" class="form-control" id="ToDate" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Designation">Achievements *</label>
+            <input type="text" class="form-control" id="Achievements" placeholder="Achievements" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="Noticeperiod">On Notice Period *</label>
+              <input type="number" class="form-control" id="Noticeperiod" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="NperiodDays">Notice Period in days  *</label>
+              <input type="number" class="form-control" id="NperiodDays" required>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger">Save</button>
+      </div>
+    </div>
+  </div>
+</div >
+<!-- End of Modal -->
+   <!--Accomplishment Modal -->
+  <div class="modal fade" id="AccomplishmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" > Accomplishment </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <h5 class="" id="" > Certification </h5>
+
+      <div class="modal-body">
+        
+        <form>
+                  
+          <div class="form-group">
+            <label for="Qualification">Certification Name *</label>
+            <input type="text" class="form-control" id="Certification" placeholder="Certification" required>
+          </div>
+
+           <div class="form-group">
+            <label for="CAuthority">Certification Authority *</label>
+            <input type="text" class="form-control" id="CAuthority" placeholder="CAuthority" required>
+          </div>
+
+
+          <div class="form-group">
+            <label for="Certification">Certification URL *</label>
+            <input type="text" class="form-control" id="Certification" placeholder="Certification" required>
+          </div>
+          <div class="form-group">
+            <label for="IssueDate">Certification Issue Date *</label>
+            <input type="date" class="form-control" id="Certification" placeholder="IssueDate" required>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger">Save</button>
+      </div>
+    </div>
+  </div>
+</div >
+<!-- End Accomplishment Modal -->
+<!-- container-scroller -->
+    <!-- plugins:js -->
+     <script>
+      document.querySelectorAll('.progress-circle').forEach((circle) => {
+    const progress = circle.getAttribute('data-progress');
+    circle.style.setProperty('--progress', progress);
+});
+
+     </script>
+    <script src="../vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../vendors/chart.js/Chart.min.js"></script>
+    <script src="../vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="../vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <script src="../js/dataTables.select.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../js/off-canvas.js"></script>
+    <script src="../js/hoverable-collapse.js"></script>
+    <script src="../js/template.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/Chart.roundedBarCharts.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>
